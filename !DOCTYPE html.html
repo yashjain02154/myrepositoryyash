@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secret File</title>
+
+<style>
+
+body{
+margin:0;
+font-family:monospace;
+background:black;
+color:#00ff9d;
+text-align:center;
+overflow:hidden;
+}
+
+#terminal{
+padding-top:120px;
+font-size:20px;
+}
+
+button{
+margin-top:30px;
+padding:14px 35px;
+font-size:18px;
+background:#00ff9d;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#birthday{
+display:none;
+background:linear-gradient(45deg,#ff4d6d,#ff85a1);
+color:white;
+height:100vh;
+text-align:center;
+padding-top:120px;
+font-family:Arial;
+}
+
+h1{
+font-size:40px;
+}
+
+.fall{
+position:absolute;
+top:-50px;
+font-size:30px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+.share{
+margin-top:30px;
+}
+
+.share button{
+background:white;
+color:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Hacker Screen -->
+
+<div id="terminal">
+<div id="text"></div>
+<button onclick="openFile()">OPEN FILE</button>
+</div>
+
+
+<!-- Birthday Screen -->
+
+<div id="birthday">
+
+<h1>🎉 HAPPY BIRTHDAY SHEETAL 🎉</h1>
+
+<p>
+System Access Granted ❤️<br><br>
+
+Dear Sheetal,<br>
+You successfully hacked Yash's heart forever.<br>
+Today the system celebrates the most beautiful person in the universe.
+</p>
+
+<h2>Have an Amazing Birthday 🎂</h2>
+
+<div class="share">
+<button onclick="sharePage()">Share on Instagram / WhatsApp</button>
+</div>
+
+</div>
+
+
+<!-- Birthday Music -->
+
+<audio id="song" loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+
+<script>
+
+/* Hacker typing animation */
+
+var message="Decrypting Birthday File...\nAccessing Secret Folder...\nLocating Sheetal.exe...\nInjecting Love Protocol...\nFile Ready.";
+var i=0;
+
+function typing(){
+if(i<message.length){
+document.getElementById("text").innerHTML+=message.charAt(i);
+i++;
+setTimeout(typing,40);
+}
+}
+
+typing();
+
+
+/* Open Birthday */
+
+function openFile(){
+document.getElementById("terminal").style.display="none";
+document.getElementById("birthday").style.display="block";
+document.getElementById("song").play();
+
+startFalling();
+}
+
+
+/* Falling Roses & Balloons */
+
+function startFalling(){
+
+setInterval(function(){
+
+var item=document.createElement("div");
+
+item.classList.add("fall");
+
+item.innerHTML=Math.random()>0.5?"🌹":"🎈";
+
+item.style.left=Math.random()*100+"vw";
+
+item.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(item);
+
+},300);
+
+}
+
+
+/* Share */
+
+function sharePage(){
+
+if(navigator.share){
+
+navigator.share({
+title:"Happy Birthday Sheetal",
+text:"Special surprise for you 🎉",
+url:window.location.href
+});
+
+}else{
+
+alert("Copy the link and share it on Instagram or WhatsApp");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
